@@ -9,21 +9,21 @@ def solution(name):
             arr[myIndex] = 0
         if sum(arr) == 0:
             break
-        check = 0
+        check = True
         index = 1
         while True:
             if arr[myIndex + index] != 0 or arr[myIndex - index] != 0:
                     if arr[myIndex + index] != 0:
-                        check = 1
+                        check = True
                     elif arr[myIndex - index] != 0:
-                        check = 2
+                        check = False
                     break
             else:
                 index += 1
-        if check == 1:
+        if check:
             result += index
             myIndex += index
-        elif check == 2:
+        else:
             result += index
             myIndex -= index
     return result
